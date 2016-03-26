@@ -56,21 +56,20 @@
       </div>
 
       <!-- FORM TO CREATE FOODS -->
+      <h2 align="center">Add Menu Items</h2>
       <div id="food-form" class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
           <form>
             <div class="form-group">
 
               <!-- BIND THIS VALUE TO formData IN ANGULAR -->
-              <div class="input-group">
-                <label>Menu Item</label>
-                <input type="text" class="form-control text-center" placeholder="Kale Soup" ng-model="formData.text">
-              </div>
+              <label>Menu Item</label>
+              <input type="text" class="form-control input-lg text-center" placeholder="Kale Soup" ng-model="formData.text">
 
-              <div class="input-group">
-                <label>Cost</label>
+              <label>Cost</label>
+              <div class="input-group"> 
                 <span class="input-group-addon">$</span>
-                <input type="number" class="form-control text-center" aria-label="Amount (to the nearest dollar)" placeholder="$9" ng-model="formData.number">
+                <input type="number" class="form-control input-lg text-center" aria-label="Amount (to the nearest dollar)" placeholder="$9" ng-model="formData.number">
                 <span class="input-group-addon">.00</span>
               </div>
             </div>
