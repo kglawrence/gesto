@@ -2,84 +2,92 @@
 
 <!-- ASSIGN OUR ANGULAR MODULE -->
 <html ng-app="scotchTodo">
-<head>
-	<!-- META -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+  <head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-	<title>Pioneer Square Food Fest</title>
+    <title>Pioneer Square Food Fest</title>
 
-	<!-- SCROLLS -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	<style>
-		html 					{ overflow-y:scroll; }
-		body 					{ padding-top:50px; }
-		#todo-list 				{ margin-bottom:30px; }
-		#todo-form 	 			{ margin-bottom:50px; }
-	</style>
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+      html 					{ overflow-y:scroll; }
+      body 					{ padding-top:50px; }
+      #todo-list 				{ margin-bottom:30px; }
+      #todo-form 	 			{ margin-bottom:50px; }
+    </style>
 
-	<!-- SPELLS -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+    <!-- SPELLS -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
 
-	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
-	<script src="js/services/foods.js"></script> <!-- load our todo service -->
-	<script src="js/core.js"></script> <!-- load our main application -->
+    <script src="js/controllers/main.js"></script> <!-- load up our controller -->
+    <script src="js/services/foods.js"></script> <!-- load our todo service -->
+    <script src="js/core.js"></script> <!-- load our main application -->
 
-</head>
-<!-- SET THE CONTROLLER -->
-<body ng-controller="mainController">
-	<div class="container">
+  </head>
+  <!-- SET THE CONTROLLER -->
+  <body ng-controller="mainController">
+    <div class="container">
 
-		<!-- HEADER AND FOOD COUNT -->
-		<div class="jumbotron text-center">
-			<h1>Foods to prepare...<span class="label label-info">{{ foods.length }}</span></h1>
-		</div>
+      <!-- HEADER AND FOOD COUNT -->
+      <div class="jumbotron text-center">
+        <h1>Foods to prepare...<span class="label label-info">{{ foods.length }}</span></h1>
+      </div>
 
-		<!-- FOOD LIST -->
-		<div id="food-list" class="row">
-			<div class="col-sm-4 col-sm-offset-4">
+      <!-- FOOD LIST -->
+      <div id="food-list" class="row">
+        <div class="col-sm-4 col-sm-offset-4">
 
-				
 
-				<!-- LOOP OVER THE FOODS IN $scope.foods -->
-				<div class="checkbox" ng-repeat="food in foods">
-					<label>
-						<input type="checkbox" ng-click="deleteFood(food._id)"> {{ food.name }}
-					</label>
-				</div>
 
-				<p class="text-center" ng-show="loading">
-					<span class="fa fa-spinner fa-spin fa-3x"></span>
-				</p>
+          <!-- LOOP OVER THE FOODS IN $scope.foods -->
+          <div class="checkbox" ng-repeat="food in foods">
+            <label>
+              <input type="checkbox" ng-click="deleteFood(food._id)"> {{ food.name }}
+            </label>
+          </div>
 
-			</div>
-		</div>
+          <p class="text-center" ng-show="loading">
+          <span class="fa fa-spinner fa-spin fa-3x"></span>
+          </p>
+        </div>
+      </div>
 
-		<!-- FORM TO CREATE FOODS -->
-		<div id="food-form" class="row">
-			<div class="col-sm-8 col-sm-offset-2 text-center">
-				<form>
-					<div class="form-group">
+      <!-- FORM TO CREATE FOODS -->
+      <div id="food-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <form>
+            <div class="form-group">
 
-						<!-- BIND THIS VALUE TO formData IN ANGULAR -->
-            <input type="text" class="form-control input-lg text-center" placeholder="Kale Soup" ng-model="formData.text">
-            <input type="number" class="form-control input-lg text-center" placeholder="$9.99" ng-model-"formData.number">
-					</div>
+              <!-- BIND THIS VALUE TO formData IN ANGULAR -->
+              <div class="input-group">
+                <label>Menu Item</label>
+                <input type="text" class="form-control text-center" placeholder="Kale Soup" ng-model="formData.text">
+              </div>
 
-					<!-- createFood() WILL CREATE NEW FOODS -->
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="createFood()">Add</button>
-				</form>
-			</div>
-		</div>
+              <div class="input-group">
+                <label>Cost</label>
+                <span class="input-group-addon">$</span>
+                <input type="number" class="form-control text-center" aria-label="Amount (to the nearest dollar)" placeholder="$9" ng-model="formData.number">
+                <span class="input-group-addon">.00</span>
+              </div>
+            </div>
 
-		<div class="text-center text-muted">
-      <p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
-      <p>Modified by Keri Lawrence.
-			<p>Read the <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>
-		</div>
+            <!-- createFood() WILL CREATE NEW FOODS -->
+            <button type="submit" class="btn btn-primary btn-lg" ng-click="createFood()">Add</button>
+          </form>
+        </div>
+      </div>
 
-	</div>
+      <div class="text-center text-muted">
+        <p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
+        <p>Modified by Keri Lawrence.
+        <p>Read the <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>
+      </div>
 
-</body>
+    </div>
+
+  </body>
 </html>
