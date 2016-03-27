@@ -15,8 +15,8 @@
     <style>
       html 					{ overflow-y:scroll; }
       body 					{ padding-top:50px; }
-      #todo-list 				{ margin-bottom:30px; }
-      #todo-form 	 			{ margin-bottom:50px; }
+      #food-list 				{ margin-bottom:30px; }
+      #food-form 	 			{ margin-bottom:50px; }
     </style>
 
     <!-- SPELLS -->
@@ -27,6 +27,7 @@
     <script src="js/core.js"></script> <!-- load our main application -->
 
   </head>
+
   <!-- SET THE CONTROLLER -->
   <body ng-controller="mainController">
     <div class="container">
@@ -40,8 +41,6 @@
       <div id="food-list" class="row">
         <div class="col-sm-4 col-sm-offset-4">
 
-
-
           <!-- LOOP OVER THE FOODS IN $scope.foods -->
           <div class="checkbox" ng-repeat="food in foods">
             <label>
@@ -54,6 +53,9 @@
           </p>
         </div>
       </div>
+
+      <!--DISPLAY TOTAL COST OF FOOD ITEMS-->
+      <h3 align="right"> Total Cost: {{cost | currency}} </h3>
 
       <!-- FORM TO CREATE FOODS -->
       <h2 align="center">Add Menu Items</h2>
@@ -87,6 +89,5 @@
       </div>
 
     </div>
-
   </body>
 </html>

@@ -7,6 +7,9 @@ angular.module('foodService', [])
 			get : function() {
 				return $http.get('/api/foods');
 			},
+      getCost : function() {
+        return $http.get('/api/total');
+      },
 			create : function(foodData) {
 				return $http.post('/api/foods', foodData);
 			},

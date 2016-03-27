@@ -6,13 +6,19 @@ angular.module('foodController', [])
 		$scope.loading = true;
 
 		// GET =====================================================================
-		// when landing on the page, get all todos and show them
-		// use the service to get all the todos
+		// when landing on the page, get all foods and show them
+		// use the service to get all the foods
 		Foods.get()
 			.success(function(data) {
 				$scope.foods = data;
 				$scope.loading = false;
 			});
+
+    Foods.getCost() 
+      .success(function(data) {
+        $scope.cost = data;
+        $scope.loading = false;
+      });
 
 		// CREATE ==================================================================
 		// when submitting the add form, send the text to the node API
@@ -30,7 +36,7 @@ angular.module('foodController', [])
 					.success(function(data) {
 						$scope.loading = false;
 						$scope.formData = {}; // clear the form so our user is ready to enter another
-						$scope.foods = data; // assign our new list of todos
+						$scope.foods = data; // assign our new list of foods
 					});
 			}
 		};
