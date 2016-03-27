@@ -29,16 +29,12 @@ app.get('/api/total', function (req, res) {
 
     //add cost of each item and compute sales tax
     var cost = 0;
-    console.log(foods);
     for (i = 0; i < foods.length; i++) {
-      console.log(i);
-      console.log(cost);
       if (foods[i].cost){
       cost += foods[i].cost;
       }
     };
     cost += (cost * .075);
-    console.log(cost);
 
     res.json(cost);
   });

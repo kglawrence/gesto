@@ -1,0 +1,9 @@
+ If Emril was not in a rush to have this project comleted (he doesn't need it till next weekend).
+ I would begin implement features that would further assist him at the food festival. The first 
+ feature I would implement would be the ability to have multiple orders. I would follow this by 
+ displaying how much time has past since the order was taken (in food service it is important to 
+ get orders out quick).
+
+ If Emril was planning to continue to use the application after the festival, I would like
+ to implement a bar graph showing which were his most popular items (using highcharts). From this
+ data he could better prepare and set up for the next event.
